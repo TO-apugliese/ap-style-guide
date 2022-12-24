@@ -1,0 +1,19 @@
+<div *ngIf="selected" class="gallery" [class.gallery--portrait]="isPortraitMode">
+  <div *ngIf="hasMultipleImages && !isMobile" class="gallery__preview">
+    <img *ngFor="let img of images"
+        [src]="img?.fields?.file?.url"
+        class="gallery__preview-item cursor-pointer"
+        [class.gallery__preview-item--selected]="img === selected"
+        (click)="selected=img">
+  </div>
+    <div class="gallery__selected">
+      <img [src]="selected?.fields?.file?.url" class="gallery__main-image" (touchstart)="handleTouchStart($event)" (touchend)="handleTouchEnd($event)">
+      <div *ngIf="hasMultipleImages && isMobile" class="mobile-pagination">
+        <div *ngFor="let img of images"
+             class="mobile-pagination__item"
+             [class.mobile-pagination__item--selected]="img === selected"
+             (click)="selected=img">
+        </div>
+      </div>
+    </div>
+</div>

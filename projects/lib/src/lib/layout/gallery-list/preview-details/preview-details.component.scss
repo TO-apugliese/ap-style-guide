@@ -1,0 +1,38 @@
+.back-button {
+  i {
+    font-size: 20px;
+  }
+}
+
+.preview-details {
+  max-width: 375px;
+  width: 100%;
+
+  &__header {
+      display: flex;
+      justify-content: space-between;
+
+    a {
+      display: block;
+    }
+
+    strong {
+      display: block;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+
+  &__subtitle {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  &__description {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

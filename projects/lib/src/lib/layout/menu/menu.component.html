@@ -1,0 +1,66 @@
+<div *ngIf="isInit" class="app-menu full-width display-flex space-between">
+    <div class="app-menu__trigger">
+        <a routerLink="/">
+            <div class="app-menu__logo" [style]="{backgroundImage: 'url(\'' + applicationConfig?.logoUrl + '\')'}"></div>
+        </a>
+        <!-- only for mobile and tablet -->
+        <div class="hamburger hamburger--collapse hide-on-large-only" [class.is-active]="opened"
+             (click)="toggle()">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </div>
+
+        <!-- only for desktop -->
+        <div class="app-menu__desktop-nav hide-on-med-and-down">
+            <ul class="nav-items padding-left-xl padding-right-xl display-flex">
+                <li *ngFor="let item of navigationSrv.mainNavItems"
+                    class="nav-items__item margin-left-l padding-xs"
+                    [class.nav-items__item--active]="item.url === currentPageUrl">
+                    <a [routerLink]="item.url" (click)="close()">{{(translate(item.name)) }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- only for mobile and tablet -->
+    <div class="app-menu__flyout padding-top-4xl hide-on-large-only" [class.app-menu__flyout--active]="opened">
+        <ul class="nav-items padding-left-xl padding-right-xl">
+            <li *ngFor="let item of navigationSrv.mainNavItems"
+                class="nav-items__item margin-bottom-l"
+                [class.nav-items__item--active]="item.url === currentPageUrl">
+                <a [routerLink]="item.url" (click)="close()" class="padding-xs">
+                    {{translate(item.name)}}
+                </a>
+            </li>
+        </ul>
+
+        <div class="app-menu__sub-nav">
+            <a *ngIf="!!applicationConfig?.ownerConfig?.instagram" class="social-icon" [href]="applicationConfig?.ownerConfig?.instagram?.link" target="_blank">
+                <div class="social-icon__img social-icon__img--insta"></div>
+                {{applicationConfig?.ownerConfig?.instagram?.name}}
+            </a>
+
+            <ul>
+                <li *ngFor="let item of navigationSrv.subNavItems" class="margin-bottom-2xs">
+                    <a [routerLink]="item.url" (click)="close()">{{translate(item.name) }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- only for mobile and tablet -->
+    <div class="app-menu__overlay hide-on-large-only" [class.not-clickable]="!opened" [class.app-menu__overlay--active]="opened" (click)="close()"></div>
+
+    <div class="app-menu__desktop-footer hide-on-med-and-down display-flex space-between margin-left-m margin-bottom-s">
+        <a class="social-icon" *ngIf="!!applicationConfig?.ownerConfig?.instagram" [href]="applicationConfig?.ownerConfig?.instagram?.link" target="_blank">
+            <div class="social-icon__img social-icon__img--insta"></div>
+            {{applicationConfig?.ownerConfig?.instagram?.name}}
+        </a>
+
+        <ul class="right margin-0 display-flex">
+            <li *ngFor="let item of navigationSrv.subNavItems" class="margin-right-l">
+                <a [routerLink]="item.url" (click)="close()">{{translate(item.name)}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="isInit"
+     [class.page-wrapper--background]="!!background?.url"
+     [style]="style"
+     class="page-wrapper padding-s padding-bottom-xl">
+    <div class="page-wrapper__header padding-s padding-left-l">
+        <ng-content select="[header]"></ng-content>
+    </div>
+    <div class="page-wrapper__content margin-top-4xl margin-left-s margin-right-s">
+        <ng-content select="[content]"></ng-content>
+    </div>
+</div>

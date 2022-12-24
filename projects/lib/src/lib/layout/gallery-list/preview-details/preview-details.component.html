@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="back-button col s12 vertical-centered margin-bottom-m">
+    <i class="large material-icons margin-right-xs">arrow_back</i>
+    <a class="link cursor-pointer text-align-right" (click)="onUnselect()">{{ translate("action.back") }}</a>
+  </div>
+  <div class="col s12 horizontal-centered">
+    <div class="preview-details">
+      <ap-gallery [images]="selectedItem?.images || []"></ap-gallery>
+      <div class="preview-details__header margin-top-l margin-bottom-l">
+        <div>
+          <h2 class="preview-details__title margin-top-0 margin-bottom-s">{{ selectedItem?.title | uppercase }}</h2>
+          <div *ngIf="showSize && selectedItem?.width && selectedItem?.height" class="preview-details__subtitle margin-top-0">
+            {{ selectedItem?.width }} x {{ selectedItem?.height }} cm
+          </div>
+        </div>
+        <div>
+          <strong *ngIf="selectedItem?.isSold || selectedItem?.price" class="margin-bottom-s text-align-right">
+            {{ selectedItem?.isSold ? "SOLD" : selectedItem?.price + " €" }}
+          </strong>
+          <a *ngIf="showOrderButton"
+             [routerLink]="'/' + applicationConfig?.navigationConfig?.orderPage"
+             [queryParams]="{ artworkId: selectedItem?.id }"
+             class="waves-effect waves-light btn margin-bottom-xs text-align-right">
+            {{ translate(selectedItem?.isSold ? "artwork.inquiry" : "artwork.order") | uppercase }}
+          </a>
+        </div>
+      </div>
+      <div class="preview-details__description" [innerHTML]="selectedItem?.descriptionAsHtml"></div>
+    </div>
+  </div>
+</div>

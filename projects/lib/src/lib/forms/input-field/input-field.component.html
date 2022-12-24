@@ -1,0 +1,4 @@
+<div class="input-field">
+    <input [id]="field" [(ngModel)]="value" type="text">
+    <label [for]="field" [class.active]="!!value">{{ translate('form.' + field) }}</label>
+</div>

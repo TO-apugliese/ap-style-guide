@@ -1,0 +1,26 @@
+$screenSize: 97.5vw;
+
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery-list {
+  width: 200%;
+  position: relative;
+  left: 0;
+  display: flex;
+  transition: .5s ease-in-out;
+
+  &__overview {
+      width: 100%;
+  }
+
+  &__details {
+    width: 100%;
+  }
+
+  &--open {
+    left: -100%;
+  }
+}

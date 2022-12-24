@@ -1,0 +1,33 @@
+.vertical {
+  &-centered {
+    display: flex;
+    align-items: center;
+  }
+
+  &-top {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.horizontal {
+  &-centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-left {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

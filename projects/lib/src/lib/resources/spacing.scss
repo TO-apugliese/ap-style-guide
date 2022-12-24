@@ -1,0 +1,9 @@
+.margin {
+  @include spacing-for-all("margin");
+  @include spacing-for-direction("margin");
+}
+
+.padding {
+  @include spacing-for-all("padding");
+  @include spacing-for-direction("padding");
+}

@@ -1,0 +1,200 @@
+$animation_time: 0.4s;
+
+:host {
+    display: block;
+}
+
+.app-menu {
+    &__trigger {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 59px;
+        justify-content: space-between;
+
+        .hamburger {
+            cursor: pointer;
+            position: relative;
+            z-index: 100;
+            user-select: none;
+            transform: scale(.5);
+        }
+    }
+
+    &__flyout {
+        background: #fff;
+        width: 100%;
+        max-width: 530px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        transform: translateX(100%);
+        user-select: none;
+        transition: $animation_time;
+
+        &--active {
+            transform: translateX(0);
+        }
+
+        .nav-items {
+            list-style: none;
+
+            &__item {
+                text-align: right;
+
+                &--active {
+                    a {
+                      font-weight: bold;
+                    }
+                }
+
+                a {
+                    color: #000;
+                    text-transform: uppercase;
+                    font-size: 14px;
+
+                    &:focus {
+                        color: #000;
+                    }
+
+                    &:active {
+                        color: #000;
+                    }
+
+                    &:hover {
+                      text-decoration: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &__overlay {
+        position: fixed;
+        /* background-color: rebeccapurple; */
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -100;
+        transition: $animation_time;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+
+    &__sub-nav {
+        position: absolute;
+        bottom: 55px;
+        left: 64px;
+        right: 64px;
+        font-size: 11px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        ul {
+            list-style: none;
+
+            li {
+                text-align: right;
+
+                a {
+                    font-size: 8px;
+                    color: #000;
+                    text-decoration: none;
+
+                    &:focus {
+                        color: #000;
+                    }
+
+                    &:active {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        position: absolute;
+        bottom: 20px;
+        left: 64px;
+        font-size: 11px;
+    }
+
+    &__logo {
+        width: 200px;
+        height: 50px;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
+
+    &__desktop-nav {
+        .nav-items {
+            &__item {
+                &--active {
+                    font-weight: bold;
+                }
+
+                a {
+                    text-transform: uppercase;
+                    font-size: 12px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .desktop-social-icon {
+        position: fixed;
+        bottom: 16px;
+        left: 16px;
+    }
+
+    &__desktop-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+
+            li {
+                a {
+                    text-transform: uppercase;
+                    font-size: 8px;
+                }
+            }
+        }
+    }
+
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        &__img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+
+            &--insta {
+                background-image: url("/assets/insta_logo.png");
+                background-size: cover;
+            }
+        }
+    }
+}

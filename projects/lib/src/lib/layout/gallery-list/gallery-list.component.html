@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="gallery-list" [class.gallery-list--open]="!!inDetailView">
+        <div class="gallery-list__overview">
+            <div class="row">
+                <div *ngFor="let item of orderedItems" class="col s12 m6 l4 padding-xs">
+                    <preview [item]="item" [showSize]="showSize" (onOpen)="select(item)"></preview>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-list__details">
+            <preview-details [selectedItem]="selectedItem"
+                         [showOrderButton]="showOrderButton"
+                         [showSize]="showSize"
+                         (unselect)="unselect()">
+            </preview-details>
+        </div>
+    </div>
+</div>

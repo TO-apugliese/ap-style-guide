@@ -1,0 +1,97 @@
+$directions: "top", "bottom", "left", "right";
+
+@mixin spacing-for-all($spacingType) {
+  &-0 {
+    #{$spacingType}: 0 !important;
+  }
+
+  &-3xs {
+    #{$spacingType}: $size-3xs !important;
+  }
+
+  &-2xs {
+    #{$spacingType}: $size-2xs !important;
+  }
+
+  &-xs {
+    #{$spacingType}: $size-xs !important;
+  }
+
+  &-s {
+    #{$spacingType}: $size-s !important;
+  }
+
+  &-m {
+    #{$spacingType}: $size-m !important;
+  }
+
+  &-l {
+    #{$spacingType}: $size-l !important;
+  }
+
+  &-xl {
+    #{$spacingType}: $size-xl !important;
+  }
+
+  &-2xl {
+    #{$spacingType}: $size-2xl !important;
+  }
+
+  &-3xl {
+    #{$spacingType}: $size-3xl !important;
+  }
+
+  &-4xl {
+    #{$spacingType}: $size-4xl !important;
+  }
+}
+
+@mixin spacing-for-direction($spacingType) {
+  @each $d in $directions {
+    &-#{$d} {
+      &-0 {
+        #{$spacingType}-#{$d}: 0 !important;
+      }
+
+      &-3xs {
+        #{$spacingType}-#{$d}: $size-3xs !important;
+      }
+
+      &-2xs {
+        #{$spacingType}-#{$d}: $size-2xs !important;
+      }
+
+      &-xs {
+        #{$spacingType}-#{$d}: $size-xs !important;
+      }
+
+      &-s {
+        #{$spacingType}-#{$d}: $size-s !important;
+      }
+
+      &-m {
+        #{$spacingType}-#{$d}: $size-m !important;
+      }
+
+      &-l {
+        #{$spacingType}-#{$d}: $size-l !important;
+      }
+
+      &-xl {
+        #{$spacingType}-#{$d}: $size-xl !important;
+      }
+
+      &-2xl {
+        #{$spacingType}-#{$d}: $size-2xl !important;
+      }
+
+      &-3xl {
+        #{$spacingType}-#{$d}: $size-3xl !important;
+      }
+
+      &-4xl {
+        #{$spacingType}-#{$d}: $size-4xl !important;
+      }
+    }
+  }
+}

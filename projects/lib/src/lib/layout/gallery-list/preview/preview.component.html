@@ -1,0 +1,8 @@
+<div #containerElem
+     [class]="containerClass"
+     [style]="containerStyle">
+    <div class="preview__title" (click)="onClick()">
+        {{item.title}}<br><br>
+        <ng-container *ngIf="showSize">{{item.width}}x{{item.height}} cm</ng-container>
+    </div>
+</div>

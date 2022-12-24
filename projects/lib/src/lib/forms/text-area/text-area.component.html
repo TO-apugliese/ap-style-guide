@@ -1,0 +1,4 @@
+<div class="input-field">
+    <textarea [id]="field" [(ngModel)]="value" class="materialize-textarea"></textarea>
+    <label [for]="field" [class.active]="!!value">{{ translate('form.' + field) }}</label>
+</div>

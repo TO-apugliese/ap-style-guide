@@ -1,0 +1,8 @@
+<p *ngIf="applicationConfig?.ownerConfig?.address" class="extra-line-height margin-bottom-l">
+    {{applicationConfig?.ownerConfig?.address?.name}}<br>
+    {{applicationConfig?.ownerConfig?.address?.street}} | {{applicationConfig?.ownerConfig?.address?.zip}} {{applicationConfig?.ownerConfig?.address?.city}}
+    | {{applicationConfig?.ownerConfig?.address?.country}}<br>
+    <a [href]="'tel:' + applicationConfig?.ownerConfig?.phone">{{applicationConfig?.ownerConfig?.phone}}</a><br>
+    <a [href]="'mailto:' + applicationConfig?.ownerConfig?.email">{{applicationConfig?.ownerConfig?.email}}</a><br>
+    <a [href]="applicationConfig?.ownerConfig?.website">{{applicationConfig?.ownerConfig?.website}}</a><br>
+</p>

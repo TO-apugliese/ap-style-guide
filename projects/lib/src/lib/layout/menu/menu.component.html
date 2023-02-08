@@ -1,7 +1,12 @@
 <div *ngIf="isInit" class="app-menu full-width display-flex space-between">
     <div class="app-menu__trigger">
         <a routerLink="/">
+          <ng-container *ngIf="applicationConfig?.logoUrl; else textLogo">
             <div class="app-menu__logo" [style]="{backgroundImage: 'url(\'' + applicationConfig?.logoUrl + '\')'}"></div>
+          </ng-container>
+          <ng-template #textLogo>
+            {{applicationConfig?.title}}
+          </ng-template>
         </a>
         <!-- only for mobile and tablet -->
         <div class="hamburger hamburger--collapse hide-on-large-only" [class.is-active]="opened"

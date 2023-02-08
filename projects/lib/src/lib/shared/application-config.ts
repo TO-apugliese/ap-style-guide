@@ -37,7 +37,7 @@ interface OwnerConfig {
 }
 
 export interface ApplicationConfig<Pages> {
-    logoUrl: string;
+    logoUrl?: string;
     title: string;
     cmsConfig: CmsConfig;
     navigationConfig: NavigationConfig<Pages>;
